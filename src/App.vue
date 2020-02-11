@@ -1,28 +1,44 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app" class="container mx-auto">
+    <Button v-on:clickButton="clickButton"/>
+    <EchartDemo v-show="showChart"/>
+    <Button v-on:clickButton="showCardFun"/>
+    <BuinessCard v-if="showCard"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Button from './components/Button.vue'
+import EchartDemo from './components/EchartDemo.vue'
+import BuinessCard from './components/BuinessCard.vue'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    // 注册局部组件
+    Button,
+    EchartDemo,
+    BuinessCard
+  },
+  data() {
+    return {
+      showChart: false,
+      showCard: false
+    }
+  },
+  methods: {
+    clickButton() {
+      console.log("显示chart：" + this.showChart);
+      this.showChart = !this.showChart;
+    },
+    showCardFun() {
+      this.showCard = !this.showCard;
+    }
   }
 }
 </script>
-
-<style>
+<style scoped>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  @apply bg-red-100;
 }
 </style>

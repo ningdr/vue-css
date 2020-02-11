@@ -1,28 +1,35 @@
 <template>
   <div>
-    <button v-on:click="btnClick" class="btn btn-blue">
-      <a href="/button.html" target="_blank">Button Example</a>
+    <button v-on:click="$emit('clickButton')" class="btn btn-blue" >Button
+      <!-- <a href="/button.html" target="_blank">Button Example</a> -->
     </button>
   </div>
 </template>
 <script>
 export default {
   name: "Button",
+  props: {
+    showChart: {
+      type: Boolean
+    }
+  },
   data() {
     return {
-      name: "TailwindCSS"
+      name: "TailwindCSS",
+      chart: this.showChart,
     };
   },
   methods: {
     btnClick() {
-      console.log(this.name);
+      console.log(this.chart);
+      this.chart = !this.chart;
     }
   }
 };
 </script>
 <style scoped>
 .btn {
-  @apply font-bold py-2 px-4 rounded;
+  @apply font-bold py-2 px-4 rounded-full;
   outline: none;
 }
 .btn-blue {

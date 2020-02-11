@@ -1,5 +1,5 @@
 <template>
-  <div id="myChart" class="div-chart"></div>
+  <div id="myChart" class="div-chart container mx-auto"></div>
 </template>
 <script>
 export default {
@@ -19,15 +19,15 @@ export default {
   },
   methods: {
     drawLine() {
-      this.$axios
-        .get("/echart-format-json", {
-          char0: this.char0,
-          char1: this.char1,
-          board: this.board
-        })
-        .then(res => {
-          this.todos.unshift(res.data);
-        });
+      // this.$axios
+      //   .get("/echart-format-json", {
+      //     char0: this.char0,
+      //     char1: this.char1,
+      //     board: this.board
+      //   })
+      //   .then(res => {
+      //     this.todos.unshift(res.data);
+      //   });
       // 基于准备好的dom，初始化echarts实例
       let myChart = this.$echarts.init(document.getElementById("myChart"));
       // 绘制图表
