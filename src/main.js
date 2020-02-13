@@ -1,3 +1,4 @@
+import "./assets/css/tailwind.css"
 import Vue from 'vue'
 import echarts from 'echarts'
 import axios from 'axios'
